@@ -234,7 +234,7 @@ bool32 sub_0804ACA8(void) {
 
 void Subtask_PortalCutscene_2(void) {
     if (gFadeControl.active == 0) {
-        SetGlobalFlag(gArea.portal_type + ENTRANCE_0);
+        SetGlobalFlag(gArea.portal_type + SEEN_TREE_TRUNK_MINISH_CUTSCENE);
         sub_0804AD6C(&gUI.roomControls);
         sub_080A71F4(NULL);
     }
@@ -253,7 +253,7 @@ bool32 sub_0804AD18(void) {
         case PT_TREESTUMP:
         case PT_ROCK:
         case PT_2:
-            if (!CheckGlobalFlag(ENTRANCE_0 + gArea.portal_type)) {
+            if (!CheckGlobalFlag(SEEN_TREE_TRUNK_MINISH_CUTSCENE + gArea.portal_type)) {
                 return FALSE;
             }
             // else: return TRUE implicitely, because it's stored in r0. But does not match if returning explicitely.

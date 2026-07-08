@@ -53,7 +53,7 @@ void BigBarrel_Type0(BigBarrelEntity* this) {
         super->action = 1;
         super->spriteSettings.draw = 3;
         super->updatePriority = 3;
-        if (CheckGlobalFlag(LV1TARU_OPEN)) {
+        if (CheckGlobalFlag(SUCKED_BARREL_WEB)) {
             super->frameIndex = gSave.dws_barrel_state + 1;
         } else {
             super->frameIndex = gSave.dws_barrel_state;

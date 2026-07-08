@@ -13,7 +13,7 @@ script_0801197C:
 	SetPlayerIdle
 	FacePlayer
 	CallWithArg sub_0807F3D8, 0x00000000
-	CheckGlobalFlag TABIDACHI
+	CheckGlobalFlag SAW_DALTUS_AND_SMITH_SCENE
 	JumpIf script_080119A0
 	MessageFromTarget TEXT_PROLOGUE, 0x3d
 	Jump script_080119A4

@@ -140,7 +140,7 @@ void sub_080A67C4(u32 param_1) {
     iVar4 = param_1 + 0x5f;
     switch (param_1) {
         case 0x9:
-            if (CheckGlobalFlag(TATEKAKE_HOUSE)) {
+            if (CheckGlobalFlag(RED_HOUSE_COMPLETE)) {
                 iVar4 = 0x70;
             }
             break;

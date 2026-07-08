@@ -5,7 +5,7 @@ SCRIPT_START script_Nayru
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0001
 	DoPostScriptAction 0x000a
-	CheckGlobalFlag GOMAN_RENTED_HOUSE
+	CheckGlobalFlag SPOKE_TO_GORMAN_AT_BLUE_HOUSE
 	JumpIf script_08011D6E
 	EndBlock
 script_08011D46:
@@ -26,9 +26,9 @@ script_08011D46:
 script_08011D6E:
 	EndBlock
 	BeginBlock
-	CheckGlobalFlag RENTED_HOUSE_DIN
+	CheckGlobalFlag DIN_MOVES_TO_BLUE_HOUSE
 	JumpIf script_08011D46
-	CheckGlobalFlag RENTED_HOUSE_FARORE
+	CheckGlobalFlag FARORE_MOVES_TO_BLUE_HOUSE
 	JumpIf script_08011D46
 	CheckEntityInteractType
 	JumpIfNot script_08011D6E
@@ -53,7 +53,7 @@ script_08011DAC:
 script_08011DBA:
 	MessageNoOverlap TEXT_GORMAN_ORACLES, 0x06
 	WaitUntilTextboxCloses
-	SetGlobalFlag RENTED_HOUSE_NAYRU
+	SetGlobalFlag NAYRU_MOVES_TO_BLUE_HOUSE
 	EnablePlayerControl
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0001

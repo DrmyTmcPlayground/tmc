@@ -757,10 +757,10 @@ void sub_0806B004(Entity* this, ScriptExecutionContext* context) {
         if (CheckLocalFlag(MIZUKAKI_BOOK_ALLBACK)) {
             if (GetInventoryValue(ITEM_FLIPPERS) == 0) {
                 idx = 3;
-                if (CheckLocalFlag(KHOUSE51_00) == 0) {
+                if (CheckLocalFlag(GOT_50_RUPEES_FROM_THE_BOTTOM_MINISH_FOR) == 0) {
                     idx = 2;
                     context->condition = 1;
-                    SetLocalFlag(KHOUSE51_00);
+                    SetLocalFlag(GOT_50_RUPEES_FROM_THE_BOTTOM_MINISH_FOR);
                 }
             } else {
                 idx = 4;
@@ -802,7 +802,7 @@ void sub_0806B098(Entity* this, ScriptExecutionContext* context) {
     if (GetInventoryValue(ITEM_FLIPPERS) == 0) {
         idx = 1;
         if (CheckGlobalFlag(MIZUKAKI_START)) {
-            if (!CheckGlobalFlag(MIZUKAKI_HARIFALL)) {
+            if (!CheckGlobalFlag(LIBRARY_BOOK_FALLING)) {
                 idx = 0;
             }
         }
@@ -836,7 +836,7 @@ void sub_0806B134(Entity* this, ScriptExecutionContext* context) {
         }
     } else {
         idx = 0;
-        SetGlobalFlag(POWERGLOVE_HINT);
+        SetGlobalFlag(HYRULE_TOWN_DR_LEFTS_HOUSE_SPOKE_TO_MINISH);
     }
     if (5 < gSave.global_progress) {
         idx = 3;

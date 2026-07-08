@@ -98,7 +98,7 @@ static bool32 sub_080867CC(u32 arg0) {
     if (arg0 != 2) {
         return TRUE;
     }
-    return CheckGlobalFlag(TATEKAKE_HOUSE);
+    return CheckGlobalFlag(RED_HOUSE_COMPLETE);
 }
 
 void HouseDoorExterior_Type1(HouseDoorExteriorEntity* this) {

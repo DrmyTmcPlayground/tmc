@@ -25,22 +25,22 @@ inline static void CheckGoronKakera() {
         CheckGlobalFlag(GORON_KAKERA_R) == 0)
         return;
 
-    if (CheckGlobalFlag(GORON_KAKERA_LV2) == 0) {
+    if (CheckGlobalFlag(GORON_MERCHANT_RESTOCKED_FOR_THE_FIRST_TIME) == 0) {
         if (CheckGlobalFlag(LV1_CLEAR) == 0)
             return;
-        SetGlobalFlag(GORON_KAKERA_LV2);
-    } else if (CheckGlobalFlag(GORON_KAKERA_LV3) == 0) {
+        SetGlobalFlag(GORON_MERCHANT_RESTOCKED_FOR_THE_FIRST_TIME);
+    } else if (CheckGlobalFlag(GORON_MERCHANT_RESTOCKED_FOR_THE_SECOND_TIME) == 0) {
         if (CheckGlobalFlag(LV2_CLEAR) == 0)
             return;
-        SetGlobalFlag(GORON_KAKERA_LV3);
-    } else if (CheckGlobalFlag(GORON_KAKERA_LV4) == 0) {
+        SetGlobalFlag(GORON_MERCHANT_RESTOCKED_FOR_THE_SECOND_TIME);
+    } else if (CheckGlobalFlag(GORON_MERCHANT_RESTOCKED_FOR_THE_3RD_TIME) == 0) {
         if (CheckGlobalFlag(LV3_CLEAR) == 0)
             return;
-        SetGlobalFlag(GORON_KAKERA_LV4);
-    } else if (CheckGlobalFlag(GORON_KAKERA_LV5) == 0) {
+        SetGlobalFlag(GORON_MERCHANT_RESTOCKED_FOR_THE_3RD_TIME);
+    } else if (CheckGlobalFlag(GORON_MERCHANT_RESTOCKED_FOR_THE_4TH_TIME) == 0) {
         if (CheckGlobalFlag(LV4_CLEAR) == 0)
             return;
-        SetGlobalFlag(GORON_KAKERA_LV5);
+        SetGlobalFlag(GORON_MERCHANT_RESTOCKED_FOR_THE_4TH_TIME);
     } else
         return;
     ClearGlobalFlag(GORON_KAKERA_L);

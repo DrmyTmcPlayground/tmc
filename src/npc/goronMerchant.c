@@ -121,17 +121,17 @@ static u32 GoronMerchant_GetSalePrice(Entity* this) {
     }
 
     restockCount = 0;
-    if (CheckGlobalFlag(GORON_KAKERA_LV2)) {
+    if (CheckGlobalFlag(GORON_MERCHANT_RESTOCKED_FOR_THE_FIRST_TIME)) {
         restockCount = 1;
     }
 
-    if (CheckGlobalFlag(GORON_KAKERA_LV3)) {
+    if (CheckGlobalFlag(GORON_MERCHANT_RESTOCKED_FOR_THE_SECOND_TIME)) {
         restockCount = 2;
     }
-    if (CheckGlobalFlag(GORON_KAKERA_LV4)) {
+    if (CheckGlobalFlag(GORON_MERCHANT_RESTOCKED_FOR_THE_3RD_TIME)) {
         restockCount = 3;
     }
-    if (CheckGlobalFlag(GORON_KAKERA_LV5)) {
+    if (CheckGlobalFlag(GORON_MERCHANT_RESTOCKED_FOR_THE_4TH_TIME)) {
         restockCount = 4;
     }
     return sKinstonePrices[restockCount * 3 + kinstoneType];

@@ -116,7 +116,7 @@ void MacroBook_Action3(MacroBookEntity* this) {
             super->timer++;
             super->frame &= 0xdf;
             SetPlayerControl(0xff);
-            SetGlobalFlag(MIZUKAKI_HARIFALL);
+            SetGlobalFlag(LIBRARY_BOOK_FALLING);
         default:
             UpdateAnimationSingleFrame(super);
             break;

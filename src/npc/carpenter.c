@@ -95,7 +95,7 @@ void sub_080672C8(Entity* this) {
     u32 dialog = 0;
     u32 tmp;
     if (GetInventoryValue(ITEM_GUST_JAR) == 0) {
-        if (CheckGlobalFlag(TABIDACHI)) {
+        if (CheckGlobalFlag(SAW_DALTUS_AND_SMITH_SCENE)) {
             dialog = 1;
         }
     }

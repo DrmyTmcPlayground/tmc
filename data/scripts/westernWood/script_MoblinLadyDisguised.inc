@@ -9,7 +9,7 @@ SCRIPT_START script_MoblinLadyDisguised
 script_08012284:
 	EndBlock
 	BeginBlock
-	CheckGlobalFlag DASHBOOTS
+	CheckGlobalFlag VISITED_CASTOR_WILDS_READ_SIGN
 	JumpIfNot script_08012298
 	CheckInventory1 ITEM_PEGASUS_BOOTS
 	JumpIf script_080122BA
@@ -23,7 +23,7 @@ script_08012298:
 	MessageFromTarget TEXT_PERCY, 0x02
 	WaitUntilTextboxCloses
 	EnablePlayerControl
-	SetGlobalFlag DASHBOOTS
+	SetGlobalFlag VISITED_CASTOR_WILDS_READ_SIGN
 	Jump script_08012284
 script_080122BA:
 	EndBlock

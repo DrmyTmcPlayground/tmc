@@ -2,7 +2,7 @@
 SCRIPT_START script_Npc4EV3Defeated
 	EndBlock
 script_0800A0FE:
-	CheckGlobalFlag ENDING
+	CheckGlobalFlag VAATIS_WRATH_DEFEATED
 	JumpIfNot script_0800A0FE
 	BeginBlock
 	SetPlayerIdle

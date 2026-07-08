@@ -6,7 +6,7 @@ SCRIPT_START script_Simon
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	EndBlock
-	CheckGlobalFlag MAROYA_WAKEUP
+	CheckGlobalFlag WAKING_UP_IS_ACTIVE
 	JumpIfNot script_08011B84
 	WaitForSyncFlagAndClear 0x00000004
 	SetAnimationState 0x0006
@@ -16,7 +16,7 @@ SCRIPT_START script_Simon
 	MessageNoOverlap TEXT_SIMON, 0x07
 	WaitUntilTextboxCloses
 	SetAnimationState 0x0004
-	ClearGlobalFlag MAROYA_WAKEUP
+	ClearGlobalFlag WAKING_UP_IS_ACTIVE
 	Call EnablePauseMenu
 	EnablePlayerControl
 script_08011B84:

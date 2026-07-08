@@ -136,7 +136,7 @@ void sub_08058A04(RollingBarrelManager* this) {
 
     s32 tmp = gPlayerEntity.base.x.HALF.HI - gRoomControls.origin_x;
     s32 tmp2 = gPlayerEntity.base.y.HALF.HI - gRoomControls.origin_y;
-    if ((this->unk_20 - 0x118 < 0xDu) && CheckGlobalFlag(LV1TARU_OPEN) && (tmp - 0x6d < 0x17u) &&
+    if ((this->unk_20 - 0x118 < 0xDu) && CheckGlobalFlag(SUCKED_BARREL_WEB) && (tmp - 0x6d < 0x17u) &&
         (tmp2 - 0x45 < 0x17u) && (gPlayerEntity.base.z.HALF.HI == 0)) {
         gPlayerState.queued_action = PLAYER_FALL;
         gPlayerState.field_0x38 = 0;
@@ -275,7 +275,7 @@ void RollingBarrelManager_OnEnterRoom(void) {
     gScreen.controls.alphaBlend = 0x909;
     gArea.bgm = gArea.queued_bgm;
     gUpdateVisibleTiles = 0;
-    if (CheckGlobalFlag(LV1TARU_OPEN)) {
+    if (CheckGlobalFlag(SUCKED_BARREL_WEB)) {
         LoadGfxGroup(0x4A);
     }
 }

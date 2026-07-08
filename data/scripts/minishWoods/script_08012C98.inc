@@ -1,7 +1,7 @@
 @ Minish Woods CUTSCENE_ORCHESTRATOR ?
 @ Ezlo Trigger to explain how portals work
 SCRIPT_START script_08012C98
-	CheckGlobalFlag EZERO_1ST
+	CheckGlobalFlag HAVE_EZLO
 	JumpIfNot script_08012C98
 script_08012CA0:
 	EndBlock

@@ -136,7 +136,7 @@ void HyruleTownTileSetManager_BuildSecondOracleHouse(void) {
     u32 loopVar;
     u32 innerLoopVar;
 
-    if (CheckGlobalFlag(TATEKAKE_HOUSE) != 0) {
+    if (CheckGlobalFlag(RED_HOUSE_COMPLETE) != 0) {
         for (loopVar = 0; loopVar < 4; ++loopVar) {
             for (innerLoopVar = 0; innerLoopVar < 4; ++innerLoopVar) {
                 SetTileByIndex(loopVar * 0x10 + TILE_TYPE_1195 + innerLoopVar,
@@ -154,7 +154,7 @@ void HyruleTownTileSetManager_BuildSecondOracleHouse(void) {
         SetTileByIndex(TILE_TYPE_215, TILE_POS(3, 23), LAYER_TOP);
         LoadResourceAsync(&gUnk_086E8460, BG_SCREEN_ADDR(3), BG_SCREEN_SIZE);
     } else {
-        if (CheckGlobalFlag(TATEKAKE_TOCHU) != 0) {
+        if (CheckGlobalFlag(RED_HOUSE_FRAME) != 0) {
             for (loopVar = 0; loopVar < 5; ++loopVar) {
                 for (innerLoopVar = 0; innerLoopVar < 4; ++innerLoopVar) {
                     SetTileByIndex(loopVar * 0x10 + TILE_TYPE_1190 + innerLoopVar,

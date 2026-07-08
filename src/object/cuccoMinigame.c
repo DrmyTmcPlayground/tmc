@@ -224,8 +224,8 @@ void CuccoMinigame_WinItem(CuccoMinigameEntity* this) {
             }
             break;
         case ITEM_HEART_PIECE:
-            if (!CheckGlobalFlag(ANJU_HEART)) {
-                SetGlobalFlag(ANJU_HEART);
+            if (!CheckGlobalFlag(HYRULE_TOWN_CUCCO_GAME_OBTAINED_HEART_PIECE)) {
+                SetGlobalFlag(HYRULE_TOWN_CUCCO_GAME_OBTAINED_HEART_PIECE);
                 break;
             }
             skipItem = 1;
@@ -273,46 +273,46 @@ void CuccoMinigame_AdvanceLevel(void) {
     }
 
     if (level & 1) {
-        SetGlobalFlag(ANJU_LV_BIT0);
+        SetGlobalFlag(CUCCO_GAME_LEVEL_1);
     } else {
-        ClearGlobalFlag(ANJU_LV_BIT0);
+        ClearGlobalFlag(CUCCO_GAME_LEVEL_1);
     }
 
     if (level & 2) {
-        SetGlobalFlag(ANJU_LV_BIT1);
+        SetGlobalFlag(CUCCO_GAME_LEVEL_2);
     } else {
-        ClearGlobalFlag(ANJU_LV_BIT1);
+        ClearGlobalFlag(CUCCO_GAME_LEVEL_2);
     }
 
     if (level & 4) {
-        SetGlobalFlag(ANJU_LV_BIT2);
+        SetGlobalFlag(CUCCO_GAME_LEVEL_4);
     } else {
-        ClearGlobalFlag(ANJU_LV_BIT2);
+        ClearGlobalFlag(CUCCO_GAME_LEVEL_4);
     }
 
     if (level & 8) {
-        SetGlobalFlag(ANJU_LV_BIT3);
+        SetGlobalFlag(CUCCO_GAME_LEVEL_8);
     } else {
-        ClearGlobalFlag(ANJU_LV_BIT3);
+        ClearGlobalFlag(CUCCO_GAME_LEVEL_8);
     }
 }
 
 u32 CuccoMinigame_GetLevel(void) {
     u32 level = 0;
 
-    if (CheckGlobalFlag(ANJU_LV_BIT0)) {
+    if (CheckGlobalFlag(CUCCO_GAME_LEVEL_1)) {
         level = 1;
     }
 
-    if (CheckGlobalFlag(ANJU_LV_BIT1)) {
+    if (CheckGlobalFlag(CUCCO_GAME_LEVEL_2)) {
         level |= 2;
     }
 
-    if (CheckGlobalFlag(ANJU_LV_BIT2)) {
+    if (CheckGlobalFlag(CUCCO_GAME_LEVEL_4)) {
         level |= 4;
     }
 
-    if (CheckGlobalFlag(ANJU_LV_BIT3)) {
+    if (CheckGlobalFlag(CUCCO_GAME_LEVEL_8)) {
         level |= 8;
     }
     return level;

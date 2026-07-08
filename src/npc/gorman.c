@@ -130,19 +130,19 @@ void sub_08069838(GormanEntity* this) {
 
 void sub_08069888(Entity* this) {
     s32 index;
-    if (CheckGlobalFlag(GOMAN_RENTED_HOUSE) == 0) {
+    if (CheckGlobalFlag(SPOKE_TO_GORMAN_AT_BLUE_HOUSE) == 0) {
         index = 0;
-        SetGlobalFlag(GOMAN_RENTED_HOUSE);
-    } else if (((CheckGlobalFlag(RENTED_HOUSE_DIN) == 0) && (CheckGlobalFlag(RENTED_HOUSE_NAYRU) == 0)) &&
-               (CheckGlobalFlag(RENTED_HOUSE_FARORE) == 0)) {
+        SetGlobalFlag(SPOKE_TO_GORMAN_AT_BLUE_HOUSE);
+    } else if (((CheckGlobalFlag(DIN_MOVES_TO_BLUE_HOUSE) == 0) && (CheckGlobalFlag(NAYRU_MOVES_TO_BLUE_HOUSE) == 0)) &&
+               (CheckGlobalFlag(FARORE_MOVES_TO_BLUE_HOUSE) == 0)) {
         index = 1;
-    } else if (CheckGlobalFlag(TATEKAKE_HOUSE) == 0) {
+    } else if (CheckGlobalFlag(RED_HOUSE_COMPLETE) == 0) {
         index = 2;
-    } else if (CheckGlobalFlag(GOMAN_NEW_HOUSE) == 0) {
+    } else if (CheckGlobalFlag(SPOKE_TO_GORMAN_AT_RED_HOUSE) == 0) {
         index = 3;
-        SetGlobalFlag(GOMAN_NEW_HOUSE);
-    } else if ((CheckGlobalFlag(NEW_HOUSE_DIN) == 0) && (CheckGlobalFlag(NEW_HOUSE_NAYRU) == 0)) {
-        index = CheckGlobalFlag(NEW_HOUSE_FARORE) ? 5 : 4;
+        SetGlobalFlag(SPOKE_TO_GORMAN_AT_RED_HOUSE);
+    } else if ((CheckGlobalFlag(DIN_MOVES_TO_RED_HOUSE) == 0) && (CheckGlobalFlag(NAYRU_MOVES_TO_RED_HOUSE) == 0)) {
+        index = CheckGlobalFlag(FARORE_MOVES_TO_RED_HOUSE) ? 5 : 4;
     } else {
         index = 5;
     }

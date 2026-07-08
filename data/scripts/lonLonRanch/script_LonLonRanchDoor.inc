@@ -2,7 +2,7 @@
 SCRIPT_START script_LonLonRanchDoor
 	BeginBlock
 	DoPostScriptAction 0x0007
-	CheckGlobalFlag INLOCK
+	CheckGlobalFlag LON_LON_RANCH_GAVE_KEY_TO_TALON
 	JumpIf script_0800B5BC
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000010

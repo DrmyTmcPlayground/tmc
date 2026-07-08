@@ -50,7 +50,7 @@ void DekuSeedProjectile_Init(Entity* this) {
     this->timer = 48;
     this->subtimer = 0;
     this->z.HALF.HI -= 4;
-    if (CheckGlobalFlag(TABIDACHI) == 0) {
+    if (CheckGlobalFlag(SAW_DALTUS_AND_SMITH_SCENE) == 0) {
         this->hitType = 0x68;
     }
     EnqueueSFX(SFX_18D);

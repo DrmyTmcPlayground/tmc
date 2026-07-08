@@ -76,7 +76,7 @@ void sub_080670B4(Entity* this) {
 
     uVar2 = 0;
     if (GetInventoryValue(ITEM_GUST_JAR) == 0) {
-        if (CheckGlobalFlag(TABIDACHI)) {
+        if (CheckGlobalFlag(SAW_DALTUS_AND_SMITH_SCENE)) {
             uVar2 = 1;
         }
     }

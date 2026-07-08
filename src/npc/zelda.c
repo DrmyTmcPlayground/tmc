@@ -82,7 +82,7 @@ void sub_08066D94(Entity* this) {
     u32 room;
     ZeldaFollowerEntity* npc;
 
-    SetGlobalFlag(ZELDA_CHASE);
+    SetGlobalFlag(FOLLOWED_BY_ZELDA);
     npc = (ZeldaFollowerEntity*)CreateNPC(ZELDA_FOLLOWER, 0, 0);
     if (npc != NULL) {
         npc->base.animationState = gPlayerEntity.base.animationState;

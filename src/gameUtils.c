@@ -121,7 +121,7 @@ void InitializePlayer(void) {
 
     gRoomControls.camera_target = pl;
     gPlayerState.queued_action = sPlayerSpawnStates[gRoomTransition.player_status.spawn_type];
-    if (!CheckGlobalFlag(EZERO_1ST)) {
+    if (!CheckGlobalFlag(HAVE_EZLO)) {
         gPlayerState.flags |= PL_NO_CAP;
     }
     switch (gRoomTransition.player_status.spawn_type) {
@@ -707,7 +707,7 @@ void UpdateGlobalProgress(void) {
 u32 sub_08053144(void) {
     u32 ret;
 
-    if (CheckGlobalFlag(ENDING))
+    if (CheckGlobalFlag(VAATIS_WRATH_DEFEATED))
         return 0;
     ret = 0;
     if (gArea.locationIndex != 0)
@@ -721,10 +721,10 @@ void CheckAreaDiscovery(void) {
 
     gRoomTransition.location = gArea.locationIndex;
 
-    if (!CheckGlobalFlag(TABIDACHI))
+    if (!CheckGlobalFlag(SAW_DALTUS_AND_SMITH_SCENE))
         return;
 
-    if (!CheckGlobalFlag(ENDING)) {
+    if (!CheckGlobalFlag(VAATIS_WRATH_DEFEATED)) {
         Entity* e = (Entity*)GetEmptyManager();
         if (e != NULL) {
             e->kind = MANAGER;
@@ -860,22 +860,22 @@ void DarknutTimerHandler(u32* timer) {
 
 void ResetTimerFlags(void) {
     static const u16 sClearFlags[] = {
-        FLAG_BANK_10, LV6_GUFUU1_GISHIKI, //
-        FLAG_BANK_10, LV6_GUFUU1_DEMO,    //
-        FLAG_BANK_10, LV6_ZELDA_DISCURSE, //
-        FLAG_BANK_10, LV6_00_ESCAPE,      //
-        FLAG_BANK_10, LV6_GUFUU2_DEAD,    //
-        FLAG_BANK_G,  ENDING,             //
-        FLAG_BANK_10, LV6_KANE_START,     //
-        FLAG_BANK_10, LV6_KANE_1ST,       //
-        FLAG_BANK_10, LV6_KANE_2ND,       //
-        FLAG_BANK_10, LV6_SOTO_ENDING,    //
+        FLAG_BANK_10, LV6_GUFUU1_GISHIKI,    //
+        FLAG_BANK_10, LV6_GUFUU1_DEMO,       //
+        FLAG_BANK_10, LV6_ZELDA_DISCURSE,    //
+        FLAG_BANK_10, LV6_00_ESCAPE,         //
+        FLAG_BANK_10, LV6_GUFUU2_DEAD,       //
+        FLAG_BANK_G,  VAATIS_WRATH_DEFEATED, //
+        FLAG_BANK_10, LV6_KANE_START,        //
+        FLAG_BANK_10, LV6_KANE_1ST,          //
+        FLAG_BANK_10, LV6_KANE_2ND,          //
+        FLAG_BANK_10, LV6_SOTO_ENDING,       //
         0xFFFF,
     };
 
     gSave.darknut_timer = 0;
     if (CheckLocalFlagByBank(FLAG_BANK_10, LV6_ZELDA_DISCURSE))
-        ClearGlobalFlag(ZELDA_CHASE);
+        ClearGlobalFlag(FOLLOWED_BY_ZELDA);
     ClearFlagArray(sClearFlags);
 }
 
@@ -920,8 +920,8 @@ void ResetTmpFlags(void) {
     ResetTimerFlags();
     ClearFlagArray(sClearFlags);
 
-    if (!CheckGlobalFlag(WATERBEAN_PUT))
-        ClearGlobalFlag(WATERBEAN_OUT);
+    if (!CheckGlobalFlag(THREW_BEAN_TO_HOLE))
+        ClearGlobalFlag(HOLDING_BEAN);
     if (!GetInventoryValue(ITEM_EARTH_ELEMENT))
         ClearGlobalFlag(LV1_CLEAR);
     if (!GetInventoryValue(ITEM_FIRE_ELEMENT))

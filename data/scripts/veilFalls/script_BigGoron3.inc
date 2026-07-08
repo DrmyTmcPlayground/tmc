@@ -11,7 +11,7 @@ script_0800934E:
 	Call sub_0806D638
 	SetScrollSpeed 1
 	CameraTargetEntity
-	CheckGlobalFlag GAMECLEAR
+	CheckGlobalFlag MAJOR_FEAT_ACCOMPLISHED
 	JumpIf script_BigGoronTalk
 	MessageNoOverlap TEXT_GORONS, 0x01
 	WaitUntilTextboxCloses

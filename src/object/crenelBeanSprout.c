@@ -57,8 +57,8 @@ void CrenelBeanSprout_Init(CrenelBeanSproutEntity* this) {
     super->hitbox = (Hitbox*)&gUnk_080FD2A8;
     switch (super->type) {
         case 0:
-            if (CheckGlobalFlag(WATERBEAN_OUT)) {
-                if (CheckGlobalFlag(WATERBEAN_PUT) == 0) {
+            if (CheckGlobalFlag(HOLDING_BEAN)) {
+                if (CheckGlobalFlag(THREW_BEAN_TO_HOLE) == 0) {
                     PositionRelative(&gPlayerEntity.base, super, 0, 0x10000);
                     SetTile(SPECIAL_TILE_34, 0xdc, super->collisionLayer);
                 } else {
@@ -83,8 +83,8 @@ void CrenelBeanSprout_Init(CrenelBeanSproutEntity* this) {
             }
             break;
         case 3:
-            if (CheckGlobalFlag(WATERBEAN_OUT)) {
-                if (CheckGlobalFlag(WATERBEAN_PUT) == 0) {
+            if (CheckGlobalFlag(HOLDING_BEAN)) {
+                if (CheckGlobalFlag(THREW_BEAN_TO_HOLE) == 0) {
                     super->spritePriority.b0 = gPlayerEntity.base.spritePriority.b0 - 1;
                     *(((u8*)&gPlayerEntity.base) + 0x79) = tmp;
                     PositionRelative(&gPlayerEntity.base, super, 0, -0x180000);
@@ -212,7 +212,7 @@ void CrenelBeanSprout_Action2(CrenelBeanSproutEntity* this) {
 }
 
 void CrenelBeanSprout_Action2SubAction0(CrenelBeanSproutEntity* this) {
-    SetGlobalFlag(WATERBEAN_OUT);
+    SetGlobalFlag(HOLDING_BEAN);
     super->subAction++;
 }
 
@@ -220,7 +220,7 @@ void CrenelBeanSprout_Action2SubAction1(CrenelBeanSproutEntity* this) {
 }
 
 void CrenelBeanSprout_Action2SubAction2(CrenelBeanSproutEntity* this) {
-    ClearGlobalFlag(WATERBEAN_OUT);
+    ClearGlobalFlag(HOLDING_BEAN);
 }
 
 void CrenelBeanSprout_Action2SubAction3(CrenelBeanSproutEntity* this) {
@@ -330,7 +330,7 @@ void sub_080969A4(CrenelBeanSproutEntity* this) {
 }
 
 void sub_08096A78(CrenelBeanSproutEntity* this) {
-    SetGlobalFlag(WATERBEAN_PUT);
+    SetGlobalFlag(THREW_BEAN_TO_HOLE);
     InitAnimationForceUpdate(super, (super->type >> 1) + 8);
     SnapToTile(super);
     super->y.HALF.HI += 4;

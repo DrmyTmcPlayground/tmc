@@ -41,7 +41,7 @@ void Simon_CreateChest(Entity* this) {
 }
 
 void sub_0806C280(void) {
-    SetGlobalFlag(MAROYA_WAKEUP);
+    SetGlobalFlag(WAKING_UP_IS_ACTIVE);
     DoExitTransition(&gUnk_0813AD74);
     gRoomTransition.type = TRANSITION_FADE_BLACK_FAST;
 }

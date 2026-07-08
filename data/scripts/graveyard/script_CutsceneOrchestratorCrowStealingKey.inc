@@ -18,7 +18,7 @@ SCRIPT_START script_CutsceneOrchestratorCrowStealingKey
 	SetSyncFlag 0x00000020
 	WaitForSyncFlagAndClear 0x00000040
 	SetInventoryValue ITEM_QST_GRAVEYARD_KEY, 0x0000
-	SetGlobalFlag HAKA_KEY_LOST
+	SetGlobalFlag GRAVEYARD_KEY_STOLEN
 	_0807E8E4_3
 	Wait 0x001e
 	EzloMessage TEXT_DAMPE, 0x09

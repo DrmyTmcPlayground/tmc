@@ -53,7 +53,7 @@ void MinishSizedEntranceManager_Main(MinishSizedEntranceManager* this) {
 
 bool32 sub_0805B8CC(u32 param_1) {
     if (param_1 == 4) {
-        return CheckGlobalFlag(TATEKAKE_HOUSE);
+        return CheckGlobalFlag(RED_HOUSE_COMPLETE);
     }
     if (param_1 < 5) {
         return TRUE;

@@ -426,9 +426,9 @@ void CutsceneMiscObject_Type6(CutsceneMiscObjectEntity* this) {
             if (gPlayerEntity.base.action != PLAYER_EMPTYBOTTLE) {
                 super->action = 4;
 #ifndef EU
-                if (!CheckGlobalFlag(BIN_DOGFOOD)) {
+                if (!CheckGlobalFlag(GAVE_DOG_FOOD_TO_DOG)) {
                     CreateItemEntity(ITEM_BOTTLE1, 0, 0);
-                    SetGlobalFlag(BIN_DOGFOOD);
+                    SetGlobalFlag(GAVE_DOG_FOOD_TO_DOG);
                     super->timer = 60;
                 }
 #else

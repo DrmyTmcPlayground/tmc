@@ -9,9 +9,9 @@ SCRIPT_START script_Farore2
 script_08011FAE:
 	EndBlock
 	BeginBlock
-	CheckGlobalFlag NEW_HOUSE_DIN
+	CheckGlobalFlag DIN_MOVES_TO_RED_HOUSE
 	JumpIf script_08011DF2
-	CheckGlobalFlag NEW_HOUSE_NAYRU
+	CheckGlobalFlag NAYRU_MOVES_TO_RED_HOUSE
 	JumpIf script_08011DF2
 	CheckEntityInteractType
 	JumpIfNot script_08011FAE
@@ -19,7 +19,7 @@ script_08011FAE:
 	SetPlayerIdle
 	FacePlayer
 	DoPostScriptAction 0x0000
-	CheckGlobalFlag GOMAN_NEW_HOUSE
+	CheckGlobalFlag SPOKE_TO_GORMAN_AT_RED_HOUSE
 	JumpIf script_08011FE4
 	MessageNoOverlap TEXT_HAPPY_HEARTH, 0x23
 	WaitUntilTextboxCloses
@@ -43,7 +43,7 @@ script_08011FFE:
 script_0801200C:
 	MessageNoOverlap TEXT_GORMAN_ORACLES, 0x13
 	WaitUntilTextboxCloses
-	SetGlobalFlag NEW_HOUSE_FARORE
+	SetGlobalFlag FARORE_MOVES_TO_RED_HOUSE
 	EnablePlayerControl
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0001

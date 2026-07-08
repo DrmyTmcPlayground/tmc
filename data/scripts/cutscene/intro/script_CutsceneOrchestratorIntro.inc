@@ -9,7 +9,7 @@ SCRIPT_START script_CutsceneOrchestratorIntro
 	Wait 0x0078
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000001
-	SetGlobalFlag ZELDA_CHASE
+	SetGlobalFlag FOLLOWED_BY_ZELDA
 	Call EnablePauseMenu
 	EnablePlayerControl
 	Call PlayerSetNormalAndCollide

@@ -242,7 +242,7 @@ void sub_08069B44(DogEntity* this) {
             (GetInventoryValue(ITEM_QST_DOGFOOD) != 2)) {
             super->action = 4;
         }
-        if ((super->type == 2) && (CheckLocalFlag(MACHI_02_DOG) == 0)) {
+        if ((super->type == 2) && (CheckLocalFlag(TALKED_TO_GROWLER_AS_MINISH) == 0)) {
             SetTile(SPECIAL_TILE_114, TILE(super->x.HALF.HI, super->y.HALF.HI - 8), super->collisionLayer);
         }
     }
@@ -434,7 +434,7 @@ void sub_08069F6C(DogEntity* this) {
 }
 
 bool32 sub_08069F90(DogEntity* this) {
-    if ((super->type == 2) && (CheckLocalFlag(MACHI_02_DOG) == 0)) {
+    if ((super->type == 2) && (CheckLocalFlag(TALKED_TO_GROWLER_AS_MINISH) == 0)) {
         return TRUE;
     } else {
         return EntityInRectRadius(super, &gPlayerEntity.base, 0x14, 0x14);
@@ -494,18 +494,18 @@ void sub_0806A0A4(Entity* this) {
 
     if (gPlayerState.flags & PL_MINISH) {
         dialog = 4;
-        if (CheckLocalFlag(MACHI_02_DOG) == 0) {
+        if (CheckLocalFlag(TALKED_TO_GROWLER_AS_MINISH) == 0) {
             dialog = 3;
-            SetLocalFlag(MACHI_02_DOG);
+            SetLocalFlag(TALKED_TO_GROWLER_AS_MINISH);
             RestorePrevTileEntity(TILE(this->x.HALF.HI, this->y.HALF.HI - 8), (u32)this->collisionLayer);
         }
     } else {
         dialog = 2;
-        if (CheckLocalFlag(MACHI_02_DOG) == 0) {
+        if (CheckLocalFlag(TALKED_TO_GROWLER_AS_MINISH) == 0) {
             dialog = 1;
-            if (CheckLocalFlag(MACHI_DOG_C) == 0) {
+            if (CheckLocalFlag(TALKED_TO_GROWLER_AS_HUMAN) == 0) {
                 dialog = 0;
-                SetLocalFlag(MACHI_DOG_C);
+                SetLocalFlag(TALKED_TO_GROWLER_AS_HUMAN);
             }
         }
     }

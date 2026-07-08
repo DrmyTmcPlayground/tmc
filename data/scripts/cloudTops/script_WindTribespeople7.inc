@@ -1,7 +1,7 @@
 @ Cloud Tops Windtribespeople
 SCRIPT_START script_WindTribespeople7
 	BeginBlock
-	CheckGlobalFlag KUMOTATSUMAKI
+	CheckGlobalFlag VORTEX_SPAWNED
 	JumpIf script_08014CD4
 	Call WindTribespeople_MakeInteractable
 	DoPostScriptAction 0x000a
@@ -10,7 +10,7 @@ SCRIPT_START script_WindTribespeople7
 script_08014CAE:
 	EndBlock
 	BeginBlock
-	CheckGlobalFlag KUMOTATSUMAKI
+	CheckGlobalFlag VORTEX_SPAWNED
 	JumpIf script_08014CD4
 	FacePlayerAndCheckDist
 	JumpIfNot script_08014CAE

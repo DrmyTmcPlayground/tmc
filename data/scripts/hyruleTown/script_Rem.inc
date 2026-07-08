@@ -8,7 +8,7 @@ SCRIPT_START script_Rem
 	JumpIf script_080130B6
 	CheckLocalFlag SHOP02_KUTSU_00
 	JumpIf script_08012FD2
-	CheckGlobalFlag DASHBOOTS
+	CheckGlobalFlag VISITED_CASTOR_WILDS_READ_SIGN
 	JumpIf script_RemFallingAsleep
 	EndBlock
 	CheckLocalFlag 0x0062

@@ -116,7 +116,7 @@ void Vaati3StartManager_Type0_Action3(Vaati3StartManager* this) {
 
 void Vaati3StartManager_Type0_Action4(Vaati3StartManager* this) {
     if (gFadeControl.active == 0) {
-        ClearGlobalFlag(ZELDA_CHASE);
+        ClearGlobalFlag(FOLLOWED_BY_ZELDA);
         sub_0805E094();
     }
 }

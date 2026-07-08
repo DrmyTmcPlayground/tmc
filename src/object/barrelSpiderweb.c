@@ -33,7 +33,7 @@ void BarrelSpiderweb(Entity* this) {
 }
 
 void BarrelSpiderweb_Init(Entity* this) {
-    if (CheckGlobalFlag(LV1TARU_OPEN)) {
+    if (CheckGlobalFlag(SUCKED_BARREL_WEB)) {
         LoadGfxGroup(0x4a);
         DeleteThisEntity();
     } else {
@@ -86,7 +86,7 @@ void BarrelSpiderweb_Action1(Entity* this) {
         this->timer--;
         this->spriteSettings.draw = 1;
         if (this->timer == 0) {
-            SetGlobalFlag(LV1TARU_OPEN);
+            SetGlobalFlag(SUCKED_BARREL_WEB);
             this->action = 2;
             this->subtimer = 128;
             this->spriteOffsetY = 0;
@@ -111,7 +111,7 @@ void BarrelSpiderweb_Action1(Entity* this) {
 }
 
 void sub_0808BD00(Entity* this) {
-    SetGlobalFlag(LV1TARU_OPEN);
+    SetGlobalFlag(SUCKED_BARREL_WEB);
     SoundReq(SFX_SECRET);
     DeleteThisEntity();
 }

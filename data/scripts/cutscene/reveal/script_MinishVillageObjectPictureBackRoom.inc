@@ -64,7 +64,7 @@ SCRIPT_START script_MinishVillageObjectPictureBackRoom
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x0078
 	PlayBgm BGM_CASTLE_COLLAPSE
-	SetGlobalFlag SEIIKI_BGM
+	SetGlobalFlag TENSE_MUSIC_IN_ELEMENTAL_SANCTUARY
 	Call EnablePauseMenu
 	EnablePlayerControl
 	DoPostScriptAction 0x0006

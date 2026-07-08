@@ -7,7 +7,7 @@ SCRIPT_START script_DampeOuside
 script_08009638:
 	EndBlock
 	BeginBlock
-	CheckGlobalFlag HAKA_KEY_LOST
+	CheckGlobalFlag GRAVEYARD_KEY_STOLEN
 	JumpIfNot script_08009638
 	EndBlock
 script_08009646:

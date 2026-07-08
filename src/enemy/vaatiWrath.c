@@ -705,7 +705,7 @@ void sub_08041E50(VaatiWrathEntity* this) {
     Entity* type2;
 
     if (--super->timer == 0) {
-        SetGlobalFlag(ENDING);
+        SetGlobalFlag(VAATIS_WRATH_DEFEATED);
         type2 = ((VaatiWrathHeapStruct*)super->myHeap)->type2;
         type2->myHeap = NULL;
         DeleteEntity(type2);

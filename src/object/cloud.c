@@ -88,7 +88,7 @@ void sub_0809F548(CloudEntity* this) {
 void sub_0809F5B0(CloudEntity* this) {
     if (--super->timer == 0) {
         SoundReq(SFX_SECRET_BIG);
-        SetGlobalFlag(KUMOTATSUMAKI);
+        SetGlobalFlag(VORTEX_SPAWNED);
         LoadRoomEntityList((EntityData*)&gUnk_080DD750);
         DeleteThisEntity();
     }

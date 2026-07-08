@@ -738,17 +738,17 @@ u32 sub_08060354(void) {
     s32 iVar2;
 
     iVar2 = gSave.enemies_killed - gSave.drug_kill_count;
-    if (CheckGlobalFlag(DRUG_1) == 0) {
+    if (CheckGlobalFlag(YELLOW_PICO_BLOOM_BLOOMED) == 0) {
         if (4 < iVar2) {
             return 0x8444;
         }
     } else {
-        if (CheckGlobalFlag(DRUG_2) == 0) {
+        if (CheckGlobalFlag(BLUE_PICO_BLOOM_BLOOMED) == 0) {
             if (iVar2 > 9) {
                 return 0x8444;
             }
         } else {
-            if (CheckGlobalFlag(DRUG_3) == 0) {
+            if (CheckGlobalFlag(ORANGE_PICO_BLOOM_BLOOMED) == 0) {
                 if (iVar2 > 14) {
                     return 0x8444;
                 }

@@ -117,7 +117,7 @@ void FileScreenObjects_Type23_LinkPreview(FileScreenObjectsEntity* this) {
 
     if (super->type2 != gMapDataBottomSpecial.unk6) {
         super->type2 = gMapDataBottomSpecial.unk6;
-        this->unk_68 = CheckGlobalFlag(EZERO_1ST) == 0 ? ANIM_DEFAULT_NOCAP : ANIM_DEFAULT;
+        this->unk_68 = CheckGlobalFlag(HAVE_EZLO) == 0 ? ANIM_DEFAULT_NOCAP : ANIM_DEFAULT;
         this->unk_70 = 4;
         super->animationState = PAS_SOUTH;
         offset = gUnk_08133368[GetPlayerPalette(TRUE) - 22] & 0xFFFFFF;

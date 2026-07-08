@@ -86,7 +86,7 @@ void StaffrollTask(void) {
 
 void StaffrollTask_State0(void) {
     gSave.saw_staffroll = TRUE;
-    SetGlobalFlag(GAMECLEAR);
+    SetGlobalFlag(MAJOR_FEAT_ACCOMPLISHED);
     gMain.state = 1;
     gStaffrollMenu.base.menuType = 0;
     gStaffrollMenu.base.transitionTimer = 180;

@@ -55,7 +55,7 @@ void TreeHidingPortal_Init(TreeHidingPortalEntity* this) {
 void TreeHidingPortal_Action1(TreeHidingPortalEntity* this) {
 
     if (sub_0800419C(super, &gPlayerEntity.base, 0x30, 0x30)) {
-        if (CheckGlobalFlag(EZERO_1ST)) {
+        if (CheckGlobalFlag(HAVE_EZLO)) {
             if (((gRoomTransition.frameCount & 3) == 0)) {
                 CreateSparkleFx(super);
             }

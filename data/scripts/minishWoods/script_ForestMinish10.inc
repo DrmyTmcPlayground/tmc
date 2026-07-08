@@ -23,14 +23,14 @@ script_0800CDA6:
 	MessageNoOverlap TEXT_FOREST_MINISH, 0x3d
 	Jump script_0800CF40
 script_0800CDC4:
-	CheckGlobalFlag DRUG_1
+	CheckGlobalFlag YELLOW_PICO_BLOOM_BLOOMED
 	JumpIf script_0800CE46
-	CheckGlobalFlag DRUG_COUNT
+	CheckGlobalFlag GAVE_PICO_BLOOM_MINISH_AN_ITEM
 	JumpIfNot script_0800CDEC
 	CheckRoomFlag 0x0000
 	JumpIfNot script_0800CF2A
-	SetGlobalFlag DRUG_1
-	ClearGlobalFlag DRUG_COUNT
+	SetGlobalFlag YELLOW_PICO_BLOOM_BLOOMED
+	ClearGlobalFlag GAVE_PICO_BLOOM_MINISH_AN_ITEM
 	MessageNoOverlap TEXT_FOREST_MINISH, 0x41
 	Jump script_0800CF40
 script_0800CDEC:
@@ -58,19 +58,19 @@ script_0800CE14:
 	WaitPlayerGetItem
 script_0800CE32:
 	FaceAwayFromPlayer
-	SetGlobalFlag DRUG_COUNT
+	SetGlobalFlag GAVE_PICO_BLOOM_MINISH_AN_ITEM
 	Call sub_08060340
 	MessageNoOverlap TEXT_FOREST_MINISH, 0x3f
 	Jump script_0800CF02
 script_0800CE46:
-	CheckGlobalFlag DRUG_2
+	CheckGlobalFlag BLUE_PICO_BLOOM_BLOOMED
 	JumpIf script_0800CEA6
-	CheckGlobalFlag DRUG_COUNT
+	CheckGlobalFlag GAVE_PICO_BLOOM_MINISH_AN_ITEM
 	JumpIfNot script_0800CE6E
 	CheckRoomFlag 0x0000
 	JumpIfNot script_0800CF2A
-	SetGlobalFlag DRUG_2
-	ClearGlobalFlag DRUG_COUNT
+	SetGlobalFlag BLUE_PICO_BLOOM_BLOOMED
+	ClearGlobalFlag GAVE_PICO_BLOOM_MINISH_AN_ITEM
 	MessageNoOverlap TEXT_FOREST_MINISH, 0x45
 	Jump script_0800CF40
 script_0800CE6E:
@@ -86,19 +86,19 @@ script_0800CE6E:
 	InitItemGetSequence ITEM_BOTTLE_MINERAL_WATER
 	WaitPlayerGetItem
 	FaceAwayFromPlayer
-	SetGlobalFlag DRUG_COUNT
+	SetGlobalFlag GAVE_PICO_BLOOM_MINISH_AN_ITEM
 	Call sub_08060340
 	MessageNoOverlap TEXT_FOREST_MINISH, 0x43
 	Jump script_0800CF02
 script_0800CEA6:
-	CheckGlobalFlag DRUG_3
+	CheckGlobalFlag ORANGE_PICO_BLOOM_BLOOMED
 	JumpIf script_0800CF3C
-	CheckGlobalFlag DRUG_COUNT
+	CheckGlobalFlag GAVE_PICO_BLOOM_MINISH_AN_ITEM
 	JumpIfNot script_0800CECE
 	CheckRoomFlag 0x0000
 	JumpIfNot script_0800CF2A
-	SetGlobalFlag DRUG_3
-	ClearGlobalFlag DRUG_COUNT
+	SetGlobalFlag ORANGE_PICO_BLOOM_BLOOMED
+	ClearGlobalFlag GAVE_PICO_BLOOM_MINISH_AN_ITEM
 	MessageNoOverlap TEXT_FOREST_MINISH, 0x49
 	Jump script_0800CF40
 script_0800CECE:
@@ -114,7 +114,7 @@ script_0800CECE:
 	InitItemGetSequence ITEM_BOTTLE_RED_POTION
 	WaitPlayerGetItem
 	FaceAwayFromPlayer
-	SetGlobalFlag DRUG_COUNT
+	SetGlobalFlag GAVE_PICO_BLOOM_MINISH_AN_ITEM
 	Call sub_08060340
 	MessageNoOverlap TEXT_FOREST_MINISH, 0x47
 script_0800CF02:

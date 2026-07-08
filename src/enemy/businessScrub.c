@@ -492,7 +492,7 @@ bool32 sub_0802915C(BusinessScrubEntity* this) {
                 return TRUE;
             break;
         case ITEM_BOTTLE1:
-            if (CheckGlobalFlag(AKINDO_BOTTLE_SELL) == 0)
+            if (CheckGlobalFlag(BOUGHT_BOTTLE_FROM_BUSINESS_SCRUB) == 0)
                 return TRUE;
             break;
         case ITEM_KINSTONE:
@@ -509,7 +509,7 @@ bool32 sub_08029198(const struct SalesOffering* offer) {
     if ((offer->field_0x0 & 0xfc) != 0xc) {
         switch (offer->offeredItem) {
             case ITEM_BOTTLE1:
-                tmp = CheckGlobalFlag(AKINDO_BOTTLE_SELL);
+                tmp = CheckGlobalFlag(BOUGHT_BOTTLE_FROM_BUSINESS_SCRUB);
                 break;
             case ITEM_BOW:
             case ITEM_GRIP_RING:
@@ -554,7 +554,7 @@ void sub_0802922C(BusinessScrubEntity* this) {
 
     switch (offer->offeredItem) {
         case ITEM_BOTTLE1:
-            SetGlobalFlag(AKINDO_BOTTLE_SELL);
+            SetGlobalFlag(BOUGHT_BOTTLE_FROM_BUSINESS_SCRUB);
         // It only matters here that ITEM_BOMBS10 is here and some item that is higher
         // Not sure about the original code
         case ITEM_ARROWS30:

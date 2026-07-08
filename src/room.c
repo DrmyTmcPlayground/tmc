@@ -184,7 +184,7 @@ void LoadRoom(void) {
     LoadRoomEntityList(GetCurrentRoomProperty(1));
     LoadRoomEntityList(GetCurrentRoomProperty(0));
 
-    if (CheckGlobalFlag(TABIDACHI))
+    if (CheckGlobalFlag(SAW_DALTUS_AND_SMITH_SCENE))
         sub_0804B058(GetCurrentRoomProperty(2));
 
     LoadRoomTileEntities(GetCurrentRoomProperty(3));
