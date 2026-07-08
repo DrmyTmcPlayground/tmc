@@ -3,7 +3,7 @@ SCRIPT_START script_CutsceneOrchestratorGetKeyBack
 	BeginBlock
 	EndBlock
 script_080098D8:
-	CheckGlobalFlag HAKA_KEY_LOST
+	CheckGlobalFlag GRAVEYARD_KEY_STOLEN
 	JumpIfNot script_080098D8
 script_080098E0:
 	CheckInventory1 ITEM_QST_GRAVEYARD_KEY

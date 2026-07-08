@@ -120,7 +120,7 @@ void sub_0806464C(Entity* this) {
         0,
     };
     s32 tmp;
-    if (CheckGlobalFlag(TABIDACHI) != 0) {
+    if (CheckGlobalFlag(SAW_DALTUS_AND_SMITH_SCENE) != 0) {
         tmp = 2;
     } else if (CheckLocalFlag(CASTLE_04_MAID_TALK) == 0) {
         tmp = 0;

@@ -168,12 +168,12 @@ void sub_08064F28(Entity* this, ScriptExecutionContext* context) {
         }
         remainingFusions = -1;
     } else {
-        if (CheckGlobalFlag(KAKERA_COMPLETE) == 0) {
+        if (CheckGlobalFlag(TALKED_TO_TINGLE_WITH_ALL_FUSIONS_COMPLETE) == 0) {
             remainingFusions = 100 - gSave.kinstones.fusedCount;
             if (remainingFusions < 1) {
                 uVar5 = 8;
                 remainingFusions = 0;
-                SetGlobalFlag(KAKERA_COMPLETE);
+                SetGlobalFlag(TALKED_TO_TINGLE_WITH_ALL_FUSIONS_COMPLETE);
                 context->condition = 1;
             } else {
                 uVar5 = 7;

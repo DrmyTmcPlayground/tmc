@@ -20,9 +20,7 @@ typedef struct {
 
 void Pita(PitaEntity* this) {
     static const Hitbox gUnk_0810C428 = {
-        0,
-        2,
-        { 0, 0, 0, 0 },
+        0,  2, { 0, 0, 0, 0 },
 #if EU
         6,
 #else

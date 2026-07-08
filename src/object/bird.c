@@ -343,12 +343,12 @@ void Bird_Type9(BirdEntity* this) {
             ResetPlayerAnimationAndAction();
             ResetPlayerEventPriority();
             gPauseMenuOptions.disabled = 0;
-            if (!CheckGlobalFlag(WARP_1ST)) {
+            if (!CheckGlobalFlag(EZLO_TALKS_AFTER_USING_OCARINA_FOR_FIRST_TIME)) {
                 CutsceneOrchestratorEntity* orchestrator =
                     (CutsceneOrchestratorEntity*)CreateObject(CUTSCENE_ORCHESTRATOR, 0, 0);
                 if (orchestrator != NULL) {
                     orchestrator->context = StartCutscene(&orchestrator->base, script_EzloTalkOcarina);
-                    SetGlobalFlag(WARP_1ST);
+                    SetGlobalFlag(EZLO_TALKS_AFTER_USING_OCARINA_FOR_FIRST_TIME);
                 }
             }
         }

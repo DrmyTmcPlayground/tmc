@@ -68,7 +68,7 @@ script_08008E12:
 	WaitForSyncFlagAndClear 0x00000100
 	SetScrollSpeed 4
 	CameraTargetPlayer
-	SetGlobalFlag TABIDACHI
+	SetGlobalFlag SAW_DALTUS_AND_SMITH_SCENE
 	Call sub_0806DCC0
 	Call EnablePauseMenu
 	EnablePlayerControl

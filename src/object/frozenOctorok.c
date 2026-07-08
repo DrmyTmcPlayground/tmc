@@ -221,7 +221,7 @@ void FrozenOctorok_Action1(FrozenOctorokEntity* this) {
             SetAffineInfo(super, this->unk_76, this->unk_74, *(u16*)&this->unk_7a);
             return;
         case 0:
-            if (CheckFlags(OUGONTEKI_G)) {
+            if (CheckFlags(GOLDEN_TEKTITE_DEFEATED_MT_CRENEL_MIDDLE_AREA)) {
                 RequestPriorityDuration(super, 0x1e);
             }
             FrozenOctorok_Action1SubActions[super->subAction](this);

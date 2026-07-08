@@ -11,9 +11,9 @@ script_0800B024:
 	JumpIfNot script_0800B024
 	SetPlayerIdle
 	Call DisablePauseMenuAndPutAwayItems
-	CheckGlobalFlag WARP_1ST
+	CheckGlobalFlag EZLO_TALKS_AFTER_USING_OCARINA_FOR_FIRST_TIME
 	JumpIf script_0800B082
-	CheckGlobalFlag WARP_MONUMENT
+	CheckGlobalFlag EZLO_TALKS_ABOUT_THE_FIRST_WIND_CREST
 	JumpIf script_0800B064
 	MessageNoOverlap TEXT_TINGLE, 0x32
 	WaitUntilTextboxCloses
@@ -22,7 +22,7 @@ script_0800B024:
 	Wait 0x003c
 	EzloMessage TEXT_EZLO, 0x5c
 	WaitUntilTextboxCloses
-	SetGlobalFlag WARP_MONUMENT
+	SetGlobalFlag EZLO_TALKS_ABOUT_THE_FIRST_WIND_CREST
 	Jump script_0800B09C
 script_0800B064:
 	MessageNoOverlap TEXT_TINGLE, 0x32

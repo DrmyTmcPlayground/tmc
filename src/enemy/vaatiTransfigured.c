@@ -194,7 +194,7 @@ void VaatiTransfiguredType0Action0(VaatiTransfiguredEntity* this) {
             enemy = CreateEnemy(VAATI_TRANSFIGURED_EYE, 0);
             enemy->parent = super;
             enemy->type2 = i;
-            if ((this->unk_75 >> (i)&1) != 0) {
+            if ((this->unk_75 >> (i) & 1) != 0) {
                 enemy->timer = 1;
             } else {
                 enemy->timer = 0;

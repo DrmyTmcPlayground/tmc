@@ -238,7 +238,7 @@ void sub_0802F8E4(WizzrobeEntity* this) {
             uVar8 = (uVar1 + iVar4) | 8;
             rand >>= 0x10;
             uVar1 = this->unk_72;
-            iVar4 = ((s32)(rand)&0x7ff0) % (this->unk_6f << 3);
+            iVar4 = ((s32)(rand) & 0x7ff0) % (this->unk_6f << 3);
             uVar7 = (uVar1 + iVar4) | 8;
             tilePos = TILE(uVar8, uVar7);
             if ((GetCollisionDataAtTilePos(tilePos, super->collisionLayer) == 0) &&

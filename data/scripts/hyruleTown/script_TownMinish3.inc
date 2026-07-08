@@ -6,7 +6,7 @@ SCRIPT_START script_TownMinish3
 	SetEntitySpeed 0x0200
 	CheckGlobalFlag MIZUKAKI_START
 	JumpIfNot script_0800E77C
-	CheckGlobalFlag MIZUKAKI_HARIFALL
+	CheckGlobalFlag LIBRARY_BOOK_FALLING
 	JumpIfNot script_0800E786
 script_0800E77C:
 	SetEntityPositionRelative 0x0188, 0x0098
@@ -15,7 +15,7 @@ script_0800E786:
 	EndBlock
 script_0800E788:
 	BeginBlock
-	CheckGlobalFlag MIZUKAKI_HARIFALL
+	CheckGlobalFlag LIBRARY_BOOK_FALLING
 	JumpIf script_0800E7BA
 	CheckEntityInteractType
 	JumpIf script_0800E7A4

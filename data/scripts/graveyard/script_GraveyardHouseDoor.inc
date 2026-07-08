@@ -3,7 +3,7 @@ SCRIPT_START script_GraveyardHouseDoor
 	BeginBlock
 	DoPostScriptAction 0x0007
 	Jump script_080096FC
-	CheckGlobalFlag HAKA_KEY_LOST
+	CheckGlobalFlag GRAVEYARD_KEY_STOLEN
 	JumpIf script_080096FC
 	EndBlock
 script_080096AC:
@@ -21,7 +21,7 @@ script_080096AC:
 	PlaySound SFX_111
 	DoPostScriptAction 0x0007
 script_080096EC:
-	CheckGlobalFlag HAKA_KEY_LOST
+	CheckGlobalFlag GRAVEYARD_KEY_STOLEN
 	JumpIfNot script_080096EC
 	Call EnablePauseMenu
 	EnablePlayerControl

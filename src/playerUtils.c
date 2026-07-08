@@ -560,7 +560,7 @@ static void sub_08077E54(ItemBehavior* this) {
 }
 
 void DeleteItemBehavior(ItemBehavior* this, u32 index) {
-    u32 not ;
+    u32 not;
 
     if (index == 0) {
         if (gPlayerState.item != NULL) {
@@ -572,10 +572,10 @@ void DeleteItemBehavior(ItemBehavior* this, u32 index) {
     }
 
     not = (8 >> index);
-    gPlayerState.attack_status &= ~((u8)((8 >> index) << 4) | not );
-    not = ~not ;
-    gPlayerState.field_0xa &= not ;
-    gPlayerState.keepFacing &= not ;
+    gPlayerState.attack_status &= ~((u8)((8 >> index) << 4) | not);
+    not = ~not;
+    gPlayerState.field_0xa &= not;
+    gPlayerState.keepFacing &= not;
     MemClear(this, sizeof(ItemBehavior));
 }
 

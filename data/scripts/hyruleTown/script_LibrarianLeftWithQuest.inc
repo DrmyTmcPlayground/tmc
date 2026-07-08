@@ -6,14 +6,14 @@ SCRIPT_START script_LibrarianLeftWithQuest
 	DoPostScriptAction 0x000a
 	SetAnimation 0x0000
 .ifdef EU
-	SetGlobalFlag MIZUKAKI_NECHAN
+	SetGlobalFlag HYRULE_TOWN_LIBRARY_SPOKE_TO_LIBRARY_RECEPTIONIST
 .endif
 	EndBlock
 script_08008BD2:
 	TriggerInteract
 	SetPlayerIdle
 .ifndef EU
-	SetGlobalFlag MIZUKAKI_NECHAN
+	SetGlobalFlag HYRULE_TOWN_LIBRARY_SPOKE_TO_LIBRARY_RECEPTIONIST
 .endif
 	SetAnimation 0x0004
 	Call WaitForAnimDone

@@ -25,15 +25,15 @@ script_08010544:
 	MessageNoOverlap TEXT_PICOLYTE, 0x0d
 	Jump script_080105E0
 script_0801054C:
-	CheckGlobalFlag DRUG_3
+	CheckGlobalFlag ORANGE_PICO_BLOOM_BLOOMED
 	JumpIfNot script_080105DC
 	Jump script_08010570
 script_08010558:
-	CheckGlobalFlag DRUG_2
+	CheckGlobalFlag BLUE_PICO_BLOOM_BLOOMED
 	JumpIfNot script_080105DC
 	Jump script_08010570
 script_08010564:
-	CheckGlobalFlag DRUG_1
+	CheckGlobalFlag YELLOW_PICO_BLOOM_BLOOMED
 	JumpIfNot script_080105DC
 	Jump script_08010570
 script_08010570:

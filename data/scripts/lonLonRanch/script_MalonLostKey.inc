@@ -39,7 +39,7 @@ script_0800B4F0:
 	DoPostScriptAction 0x0008
 	Wait 0x001e
 	SetSyncFlag 0x00000010
-	SetGlobalFlag INLOCK
+	SetGlobalFlag LON_LON_RANCH_GAVE_KEY_TO_TALON
 	Call PlayerSetNormalAndCollide
 	EnablePlayerControl
 	Call sub_0807FBCC

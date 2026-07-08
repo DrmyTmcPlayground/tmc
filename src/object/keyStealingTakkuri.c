@@ -75,7 +75,7 @@ void KeyStealingTakkuri_Type0_Init(KeyStealingTakkuriEntity* this) {
         entity->parent = super;
         super->child = entity;
     } else {
-        SetGlobalFlag(HAKA_KEY_LOST);
+        SetGlobalFlag(GRAVEYARD_KEY_STOLEN);
         DeleteThisEntity();
     }
 }
@@ -119,7 +119,7 @@ void KeyStealingTakkuri_Type0_Action3(KeyStealingTakkuriEntity* this) {
 void KeyStealingTakkuri_Type0_Action4(KeyStealingTakkuriEntity* this) {
     sub_0809E1F0(this);
     if (!CheckOnScreen(super)) {
-        SetGlobalFlag(HAKA_KEY_LOST);
+        SetGlobalFlag(GRAVEYARD_KEY_STOLEN);
         (super->child)->parent = NULL;
         DeleteThisEntity();
     }
@@ -210,7 +210,7 @@ void KeyStealingTakkuri_Type2_Init(KeyStealingTakkuriEntity* this) {
         entity->parent = super;
         super->child = entity;
     } else {
-        SetGlobalFlag(HAKA_KEY_LOST);
+        SetGlobalFlag(GRAVEYARD_KEY_STOLEN);
         DeleteThisEntity();
     }
 }
@@ -261,7 +261,7 @@ void KeyStealingTakkuri_Type2_Action5(KeyStealingTakkuriEntity* this) {
     sub_0809E1F0(this);
     sub_0809E210(this);
     if (!CheckOnScreen(super)) {
-        SetGlobalFlag(HAKA_KEY_LOST);
+        SetGlobalFlag(GRAVEYARD_KEY_STOLEN);
         (super->child)->parent = NULL;
         DeleteThisEntity();
     }

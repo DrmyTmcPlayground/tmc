@@ -57,7 +57,7 @@ void FrozenWaterElement_Init(FrozenWaterElementEntity* this) {
 
 void FrozenWaterElement_Action1(FrozenWaterElementEntity* this) {
     SetAffineInfo(super, 0xcc, 0xcc, 0);
-    if (CheckFlags(OUGONTEKI_G)) {
+    if (CheckFlags(GOLDEN_TEKTITE_DEFEATED_MT_CRENEL_MIDDLE_AREA)) {
         Entity* obj = CreateObject(WATER_ELEMENT, 0, 0);
         if (obj != NULL) {
             gRoomControls.camera_target = obj;

@@ -191,10 +191,10 @@ bool32 IsColliding(Entity* this, Entity* that) {
         Hitbox* bb_that = that->hitbox;
         u32 this_len = bb_this->width;
         u32 sumw = this_len + bb_that->width;
-        if ((((this->x.HALF.HI - that->x.HALF.HI) + bb_this->offset_x) - bb_that->offset_x) + sumw <= (sumw)*2) {
+        if ((((this->x.HALF.HI - that->x.HALF.HI) + bb_this->offset_x) - bb_that->offset_x) + sumw <= (sumw) * 2) {
             this_len = bb_this->height;
             sumw = this_len + bb_that->height;
-            if ((((this->y.HALF.HI - that->y.HALF.HI) + bb_this->offset_y) - bb_that->offset_y) + sumw <= (sumw)*2) {
+            if ((((this->y.HALF.HI - that->y.HALF.HI) + bb_this->offset_y) - bb_that->offset_y) + sumw <= (sumw) * 2) {
                 if ((this->collisionFlags & 0x10) != 0)
                     this_d = ((Hitbox3D*)bb_this)->depth;
                 else

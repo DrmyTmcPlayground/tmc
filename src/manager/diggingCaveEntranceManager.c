@@ -138,8 +138,7 @@ const DiggingCaveEntrance* GetDiggingCaveEntranceForRoom(const DiggingCaveEntran
     return 0;
 }
 
-#define END_OF_LIST \
-    { 0xffff, 0, 0, 0, 0 }
+#define END_OF_LIST { 0xffff, 0, 0, 0, 0 }
 
 static const DiggingCaveEntrance diggingCaveEntrancesEmpty[] = { END_OF_LIST };
 static const DiggingCaveEntrance diggingCaveEntrancesMinishWoods[] = {

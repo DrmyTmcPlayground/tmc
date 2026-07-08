@@ -73,7 +73,7 @@ void sub_0806C7D4(Entity* this) {
         InitializeNPCFusion(this);
     } else {
         ExecuteScriptAndHandleAnimation(this, NULL);
-        if ((this->type2 == 3) && (!CheckGlobalFlag(WARP_EVENT_END)) && (CheckLocalFlag(SORA_ELDER_RECOVER)) &&
+        if ((this->type2 == 3) && (!CheckGlobalFlag(WIND_TRIBE_TOWER_STATE)) && (CheckLocalFlag(SORA_ELDER_RECOVER)) &&
             (CheckRoomFlag(0))) {
             this->type2 = 7;
             sub_0807DD80(this, &script_WindTribespeople6);
@@ -177,7 +177,7 @@ void sub_0806C944(Entity* this, ScriptExecutionContext* context) {
     int iVar1;
     int iVar2;
 
-    iVar1 = CheckGlobalFlag(WARP_EVENT_END);
+    iVar1 = CheckGlobalFlag(WIND_TRIBE_TOWER_STATE);
     if (iVar1 == 0) {
         iVar2 = 0;
     } else {
@@ -196,7 +196,7 @@ void sub_0806C978(Entity* this, ScriptExecutionContext* context) {
         TEXT_INDEX(TEXT_WIND_TRIBE, 0x11),
     };
     u32 flagAsBool = 0;
-    if (CheckGlobalFlag(WARP_EVENT_END)) {
+    if (CheckGlobalFlag(WIND_TRIBE_TOWER_STATE)) {
         flagAsBool = 1;
     }
     MessageNoOverlap(messageIndices[flagAsBool], this);
@@ -211,7 +211,7 @@ void sub_0806C99C(Entity* this, ScriptExecutionContext* context) {
     };
     u32 flagAsBool = 0;
 
-    if (CheckGlobalFlag(WARP_EVENT_END)) {
+    if (CheckGlobalFlag(WIND_TRIBE_TOWER_STATE)) {
         flagAsBool = 2;
     }
     if (CheckLocalFlag(SORA_ELDER_RECOVER)) {
@@ -239,7 +239,7 @@ void sub_0806C9F8(Entity* this, ScriptExecutionContext* context) {
         0x0,
     };
     u32 flagAsBool = 0;
-    if (CheckGlobalFlag(WARP_EVENT_END)) {
+    if (CheckGlobalFlag(WIND_TRIBE_TOWER_STATE)) {
         flagAsBool = 1;
     }
     MessageNoOverlap(messageIndices[flagAsBool], this);

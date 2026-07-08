@@ -2,7 +2,7 @@
 SCRIPT_START script_DrLeftDoor
 	BeginBlock
 	DoPostScriptAction 0x0007
-	CheckGlobalFlag LEFT_DOOR_OPEN
+	CheckGlobalFlag SPOKE_TO_DR_LEFT_OUTSIDE_DOOR
 	JumpIf script_0800EF92
 	EndBlock
 script_0800EF50:
@@ -19,7 +19,7 @@ script_0800EF50:
 	EnablePlayerControl
 	Jump script_0800EF50
 script_0800EF82:
-	SetGlobalFlag LEFT_DOOR_OPEN
+	SetGlobalFlag SPOKE_TO_DR_LEFT_OUTSIDE_DOOR
 	MessageFromTarget TEXT_DR_LEFT, 0x02
 	WaitUntilTextboxCloses
 	Wait 0x000f

@@ -75,7 +75,7 @@ void sub_0806E964(PhonographEntity* this, ScriptExecutionContext* context) {
         }
 
         val2 = 0x1c;
-        if (CheckGlobalFlag(GAMECLEAR)) {
+        if (CheckGlobalFlag(MAJOR_FEAT_ACCOMPLISHED)) {
             val2 = 0x34;
         }
 
@@ -129,7 +129,7 @@ void sub_0806E964(PhonographEntity* this, ScriptExecutionContext* context) {
     }
 
     val2 = 0x1c;
-    if (CheckGlobalFlag(GAMECLEAR)) {
+    if (CheckGlobalFlag(MAJOR_FEAT_ACCOMPLISHED)) {
         val2 = 0x34;
     }
     val = this->unk_68;

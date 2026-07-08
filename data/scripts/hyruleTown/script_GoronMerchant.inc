@@ -34,7 +34,7 @@ script_08010804:
 	JumpIfNot script_08010858
 	CheckGlobalFlag GORON_KAKERA_R
 	JumpIfNot script_08010858
-	CheckGlobalFlag GORON_KAKERA_LV5
+	CheckGlobalFlag GORON_MERCHANT_RESTOCKED_FOR_THE_4TH_TIME
 	JumpIfNot script_08010850
 	MessageNoOverlap TEXT_TINGLE, 0x39
 	Jump script_080108BA

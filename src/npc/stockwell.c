@@ -247,7 +247,7 @@ void sub_08065370(Entity* this, ScriptExecutionContext* context) {
             break;
 #ifndef EU
         case ITEM_BOMBBAG:
-            localFlag = SHOP00_BOMBBAG;
+            localFlag = BOUGHT_BOMB_BAG;
             break;
 #endif
         case ITEM_SHELLS30:

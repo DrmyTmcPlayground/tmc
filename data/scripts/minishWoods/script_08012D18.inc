@@ -2,7 +2,7 @@
 SCRIPT_START script_08012D18
 	EndBlock
 	BeginBlock
-	CheckGlobalFlag EZERO_1ST
+	CheckGlobalFlag HAVE_EZLO
 	JumpIfNot script_08012D18
 	CheckLocalFlagByBank FLAG_BANK_2, 0x008d
 	JumpIf script_08012D68

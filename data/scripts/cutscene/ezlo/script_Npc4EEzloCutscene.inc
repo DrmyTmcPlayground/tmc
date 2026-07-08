@@ -127,7 +127,7 @@ script_08012566:
 	Wait 0x003c
 	PlayBGM
 	Call EnableRandomDrops
-	SetGlobalFlag EZERO_1ST
+	SetGlobalFlag HAVE_EZLO
 	CallWithArg ResetPlayerFlag, PL_NO_CAP
 	Call EnablePauseMenu
 	EnablePlayerControl

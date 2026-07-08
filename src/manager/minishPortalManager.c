@@ -32,7 +32,7 @@ void MinishPortalManager_Main(MinishPortalManager* this) {
         gArea.portal_y = this->unk_24 + 0x20 + gUnk_08107C6C[super->type];
         gArea.portal_exit_dir = this->unk_34;
         gArea.portal_type = super->type;
-        if (!CheckGlobalFlag(EZERO_1ST)) {
+        if (!CheckGlobalFlag(HAVE_EZLO)) {
             gArea.portal_mode = 1;
             gArea.portal_type = PT_5;
         } else {

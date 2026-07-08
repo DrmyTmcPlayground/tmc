@@ -28,13 +28,13 @@ void sub_0806DD90(Entity* this) {
 
     this->action = 1;
     animIndex = 0;
-    if (CheckGlobalFlag(DRUG_1)) {
+    if (CheckGlobalFlag(YELLOW_PICO_BLOOM_BLOOMED)) {
         animIndex = 1;
     }
-    if (CheckGlobalFlag(DRUG_2)) {
+    if (CheckGlobalFlag(BLUE_PICO_BLOOM_BLOOMED)) {
         animIndex = 2;
     }
-    if (CheckGlobalFlag(DRUG_3)) {
+    if (CheckGlobalFlag(ORANGE_PICO_BLOOM_BLOOMED)) {
         animIndex = 3;
     }
     InitializeAnimation(this, animIndex);

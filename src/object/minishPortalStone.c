@@ -88,7 +88,7 @@ void MinishPortalStone_Action3(MinishPortalStoneEntity* this) {
             super->action = 4;
             super->spriteRendering.alphaBlend = 0;
             SoundReq(SFX_SECRET);
-            SetGlobalFlag(TINY_ENTRANCE);
+            SetGlobalFlag(EZLO_TALKS_ABOUT_MINISH_PORTAL);
         }
     }
 }

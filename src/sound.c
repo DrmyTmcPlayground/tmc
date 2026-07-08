@@ -4,8 +4,8 @@
 #include "sound.h"
 #include "common.h"
 
-#define IS_BGM(song) ((song)-1 <= NUM_BGM - 1)
-#define IS_SFX(song) ((song)-1 > NUM_BGM - 1)
+#define IS_BGM(song) ((song) - 1 <= NUM_BGM - 1)
+#define IS_SFX(song) ((song) - 1 > NUM_BGM - 1)
 
 static s32 fade(s32 target, s32 current);
 static void doPlaySound(u32 sound);

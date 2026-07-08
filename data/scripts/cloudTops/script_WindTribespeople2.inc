@@ -3,7 +3,7 @@ SCRIPT_START script_WindTribespeople2
 	BeginBlock
 	Call WindTribespeople_MakeInteractable
 	DoPostScriptAction 0x000a
-	CheckGlobalFlag WARP_EVENT_END
+	CheckGlobalFlag WIND_TRIBE_TOWER_STATE
 	JumpIfNot script_080149C6
 	EndBlock
 script_080149AA:

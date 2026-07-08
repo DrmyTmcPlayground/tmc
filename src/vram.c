@@ -73,7 +73,7 @@ void sub_080ADDD8(u32 index, u32 paletteIndex) {
         temp = 0xffff;
     } else {
         // @ TODO probably a bitfield
-        temp = ((paletteIndex)&0x7f000000) >> 0x14;
+        temp = ((paletteIndex) & 0x7f000000) >> 0x14;
     }
     slot->paletteIndex = temp;
     slot->vramStatus = GFX_VRAM_3;

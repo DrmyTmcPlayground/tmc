@@ -39,8 +39,7 @@
 // Get the IDE to stfu
 
 // We define it this way to fool preproc.
-#define INCBIN(...) \
-    { 0 }
+#define INCBIN(...) { 0 }
 #define INCBIN_U8 INCBIN
 #define INCBIN_U16 INCBIN
 #define INCBIN_U32 INCBIN
@@ -63,7 +62,7 @@
 // useful math macros
 
 // Converts a number to Q8.8 fixed-point format
-#define Q_8_8(n) ((s16)((n)*256))
+#define Q_8_8(n) ((s16)((n) * 256))
 
 // Converts a number to Q16.16 fixed-point format
 #define Q_16_16(n) ((s32)((n) * (1 << 16)))
@@ -161,7 +160,7 @@ struct Entity_;
  */
 
 #define BIT(bit) (1 << (bit))
-#define IS_BIT_SET(value, bit) ((value)&BIT(bit))
+#define IS_BIT_SET(value, bit) ((value) & BIT(bit))
 
 /**
  * Multi return function data type casts

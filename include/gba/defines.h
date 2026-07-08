@@ -76,14 +76,14 @@
 #define TILE_SIZE_4BPP 32
 #define TILE_SIZE_8BPP 64
 
-#define TILE_OFFSET_4BPP(n) ((n)*TILE_SIZE_4BPP)
-#define TILE_OFFSET_8BPP(n) ((n)*TILE_SIZE_8BPP)
+#define TILE_OFFSET_4BPP(n) ((n) * TILE_SIZE_4BPP)
+#define TILE_OFFSET_8BPP(n) ((n) * TILE_SIZE_8BPP)
 
 #define TOTAL_OBJ_TILE_COUNT 1024
 
 #define RGB(r, g, b) ((r) | ((g) << 5) | ((b) << 10))
 #define RGB2(r, g, b) (((b) << 10) | ((g) << 5) | (r))
-#define _RGB(r, g, b) ((((b)&0x1F) << 10) + (((g)&0x1F) << 5) + ((r)&0x1F))
+#define _RGB(r, g, b) ((((b) & 0x1F) << 10) + (((g) & 0x1F) << 5) + ((r) & 0x1F))
 
 #define RGB_BLACK RGB(0, 0, 0)
 #define RGB_WHITE RGB(31, 31, 31)

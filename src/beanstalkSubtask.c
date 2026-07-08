@@ -259,7 +259,7 @@ u32 UpdatePlayerCollision(void) {
             if (gPlayerState.field_0xa != 0) {
                 return 0;
             }
-            if ((Direction8FromAnimationState(gPlayerEntity.base.animationState)) - gPlayerState.direction !=
+            if ((Direction8FromAnimationState(gPlayerEntity.base.animationState))-gPlayerState.direction !=
                 DirectionNorth) {
                 return 0;
             }
@@ -364,7 +364,7 @@ u32 UpdatePlayerCollision(void) {
                 return 0;
             }
 #endif
-            if ((Direction8FromAnimationState(gPlayerEntity.base.animationState)) - gPlayerState.direction !=
+            if ((Direction8FromAnimationState(gPlayerEntity.base.animationState))-gPlayerState.direction !=
                 DirectionNorth) {
                 return 0;
             }
@@ -997,7 +997,7 @@ bool32 sub_0801AA58(Entity* this, u32 param_2, u32 param_3) {
         object = CreateObject(PUSHED_BLOCK, 0, 0);
         if (object != NULL) {
             object->direction = param_3;
-            object->x.HALF.HI = ((((param_2)&0x3f) << 4) + 8) + gRoomControls.origin_x;
+            object->x.HALF.HI = ((((param_2) & 0x3f) << 4) + 8) + gRoomControls.origin_x;
             object->y.HALF.HI = (((param_2 & 0xfc0) >> 2) + 8) + gRoomControls.origin_y;
             object->collisionLayer = this->collisionLayer;
             gPlayerState.pushedObject = 0xa0;
