@@ -8,83 +8,6 @@
 
 extern std::string gBaseromPath;
 
-// Opcodes used for parsing out the start, end, and jumps in the track
-// See https://www.romhacking.net/documents/462/ and https://loveemu.github.io/vgmdocs/Summary_of_GBA_Standard_Sound_Driver_MusicPlayer2000.html
-constexpr int cmdWaitBegin = 0x80; // 0x80 to 0xB0 just means wait
-constexpr int cmdWaitEnd = 0xB0; 
-constexpr int cmdFine = 0xB1; // track end
-constexpr int cmdGoto = 0xB2; // jump, 4-byte ROM address operand
-constexpr int cmdPatt = 0xB3; // call pattern, 4-byte ROM address operand
-constexpr int cmdPattEnd = 0xB4; 
-constexpr int cmdTempo = 0xBB;
-// Opcodes used for parsing reasons
-constexpr int cmdTranspose = 0xBC;
-constexpr int cmdOneParamRangeBegin = 0xBD; // 0xBD to 0xC5 all have 1 parameter
-constexpr int cmdOneParamRangeEnd = 0xC5;
-constexpr int cmdTune = 0xC8;
-constexpr int cmdEcho = 0xCD;
-constexpr int cmdTieEnd = 0xCE;
-constexpr int cmdTieBegin = 0xCF;
-constexpr int cmdNoteBegin = 0xD0;
-
-int voiceGroupNumber(const nlohmann::json& options, const std::string& label) {
-    const nlohmann::json* value = options.contains("group") ? &options["group"] : &options["G"];
-    return value->is_number_integer() ? value->get<int>() : std::stoi(value->get<std::string>());
-}
-
-int skipOptionalArgs(const unsigned char* blob, std::uint32_t end, std::uint32_t from, int count) {
-    std::uint32_t skip = from;
-    for (int i = 0; i < count && skip < end && blob[skip] < cmdWaitBegin; ++i) {
-        ++skip;
-    }
-        
-    return skip;
-}
-
-void parseTrack(const unsigned char* blob, std::uint32_t start, std::uint32_t end, const std::string& name, std::vector<std::uint32_t>& sites) {    
-    int lastCommand = -1;
-    std::uint32_t parseIndex = start;
-    while (parseIndex < end) {
-        // We need to parse to find each of the goto/patt statements so we can adjust the pointers
-        int command = blob[parseIndex];        
-        std::uint32_t commandPosition = parseIndex;
-        std::uint32_t parseArgIndex = parseIndex + 1;
-        
-        if (command < cmdWaitBegin) {
-            command = lastCommand;
-            parseArgIndex = parseIndex;
-        } else if (command > cmdPattEnd && command != cmdTempo) {
-            lastCommand = command;
-        }
-        
-        if ((command >= cmdWaitBegin && command <= cmdWaitEnd) || command == cmdPattEnd) {
-            parseIndex = parseArgIndex;
-        } else if (command == cmdFine) {
-            return;
-        } else if (command == cmdGoto || command == cmdPatt) {
-            // Record the location of the jump statement
-            sites.push_back(parseArgIndex);
-            parseIndex = parseArgIndex + 4;
-        } else if (command == cmdTempo || command == cmdTranspose || command == cmdTune || (command >= cmdOneParamRangeBegin && command <= cmdOneParamRangeEnd)) {
-            parseIndex = parseArgIndex + 1;
-        } else if (command = cmdEcho) {
-            parseIndex = parseArgIndex + 4;
-        } else {
-            switch (command) {
-                case cmdTieEnd:
-                    parseIndex = skipOptionalArgs(parseArgIndex, 1);
-                    break;
-                case cmdTieBegin:
-                    parseIndex = skipOptionalArgs(parseArgIndex, 2);
-                    break;
-                default:
-                    parseIndex = skipOptionalArgs(parseArgIndex, 3);
-                    break;
-            }
-        }
-    }
-}
-
 std::filesystem::path MidiAsset::generateAssetPath() {
     std::filesystem::path asset_path = path;
     return asset_path.replace_extension(".mid");
@@ -101,6 +24,8 @@ void MidiAsset::extractBinary(const std::vector<char>& baserom) {
 
     std::filesystem::path tracksPath = path;
     tracksPath.replace_filename(label + "_tracks.bin");
+    std::filesystem::path headerPath = path;
+    headerPath.replace_filename(label + "_header.bin");
 
     int headerOffset = asset["options"]["headerOffset"];
 
@@ -109,63 +34,17 @@ void MidiAsset::extractBinary(const std::vector<char>& baserom) {
         auto file = util::open_file(tracksPath, "w");
         std::fwrite(baserom.data() + start, 1, static_cast<size_t>(headerOffset), file.get());
     }
-    
-    // Extract header and goto/patt pointers
-    // We have to extract the pointers to make the audio files properly shiftable
-    const unsigned char* blob = reinterpret_cast<const unsigned char*>(baserom.data()) + start;
-    std::uint32_t blobRomAddress = 0x08000000u + static_cast<std::uint32_t>(start);
-    std::uint32_t blobSize = static_cast<std::uint32_t>(headerOffset);
-    Reader reader(baserom, start, size);
-
-    auto readU32 = [&reader](int offset) -> std::uint32_t {
-        reader.cursor = offset;
-        return reader.read_u32();
-    };
-
-    reader.cursor = headerOffset;
-
-    // Read the blob header to find the track start positions
-    unsigned numTracks = reader.read_u8();
-    unsigned numBlocks = reader.read_u8();
-    unsigned priority = reader.read_u8();
-    unsigned reverb = reader.read_u8();
-    std::string voiceGroupLabel = fmt::format("voicegroup{:03}", voiceGroupNumber(asset["options"], label));
-
-    auto blobOffset = [](std::uint32_t romAddress) -> std::uint32_t {
-        return romAddress - blobRomAddress;
-    };
-
-    std::vector<std::uint32_t> trackStartPositions;
-    std::vector<std::uint32_t> sites;
-    for (int i = 0; i < numTracks; ++i) {
-        trackStartPositions.push_back(blobOffset(readU32(headerOffset + 8 + 4 * i)));
+    // Extract header
+    {
+        auto file = util::open_file(headerPath, "w");
+        std::fwrite(baserom.data() + start + headerOffset, 1, static_cast<size_t>(size - headerOffset), file.get());
     }
 
-    for (int i = 0; i < numTracks; ++i) {
-        parseTrack(blob, trackStartPositions[i], i + 1 < numTracks ? trackStartPositions[i + 1] : blobSize, sites);
-    }
-
-    // Create the .s file, populating the pointer values for goto/patt statements to be used by the linker
-    // This fixes the issue of ROM changes causing audio to be silent or completely non-functional
+    // Create dummy .s file.
     auto file = util::open_file(buildPath, "w");
-    fmt::print(file.get(), "{}_tracks:\n", label);
-    std::uint32_t position = 0;
-    for (std::uint32_t site : sites) {
-        std::uint32_t pointerTarget = blobOffset(readU32(static_cast<int>(site)));
-        fmt::print(file.get(), "\t.4byte {}_tracks + {:#x}\n", label, target);
-        position = site + 4;
-    }
-    
-    if (position < blobSize) {
-        fmt::print(file.get(), "\t.incbin \"{}\", {}, {}\n", tracksPath.native(), position, blobSize - position);
-    }
-    
+    fmt::print(file.get(), "\t.incbin \"{}\"\n", tracksPath.native());
     fmt::print(file.get(), "{}::\n", label);
-    fmt::print(file.get(), "\t.byte {}, {}, {}, {}\n", numTracks, numBlocks, priority, reverb);
-    fmt::print(file.get(), "\t.4byte {}\n", voiceGroupLabel);
-    for (std::uint32_t trackStartPosition : trackStartPositions) {
-        fmt::print(file.get(), "\t.4byte {}_tracks + {:#x}\n", label, trackStartPosition);
-    }
+    fmt::print(file.get(), "\t.incbin \"{}\"\n", headerPath.native());
 }
 
 void MidiAsset::parseOptions(std::vector<std::string>& commonParams, std::vector<std::string>& agb2midParams) {
